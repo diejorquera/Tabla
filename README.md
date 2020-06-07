@@ -1,2 +1,2 @@
 # Tabla
-tablas en js php css html
+Entrega n°1 Proyecto DUOC
