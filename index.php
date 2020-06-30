@@ -44,7 +44,7 @@
                     <thead class="text-center">
                         <tr>
                             <th>Id</th>
-                            <th>Nombre</th>
+                            <th>Nombre Producto</th>
                             <th>Código</th>                                
                             <th>Valor</th>
                               
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                     <div class="form-group">
-                    <label for="" class="col-form-label">Nombre</label>
+                    <label for="" class="col-form-label">Nombre Producto</label>
                     <input type="text" class="form-control" id="nombre">
                     </div>
                     </div>

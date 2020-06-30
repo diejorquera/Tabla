@@ -22,7 +22,7 @@ tablaHerramientas = $('#tablaHerramientas').DataTable({
 });     
 
 var fila; //captura la fila, para editar o eliminar
-//submit para el Alta y Actualización
+//submit para el Agregar y Actualización
 $('#formHerramientas').submit(function(e){                         
     e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
     nombre = $.trim($('#nombre').val());    
@@ -30,13 +30,17 @@ $('#formHerramientas').submit(function(e){
     valor = $.trim($('#valor').val());    
     cantidad_i = $.trim($('#cantidad_i').val());    
     cantidad_a  = $.trim($('#cantidad_a').val());
-    dato = $.trim($('#dato').val());                            
+    dato = $.trim($('#dato').val());
+    request_body = {id:id,nombre:nombre, codigo:codigo, valor:valor, cantidad_i:cantidad_i, cantidad_a:cantidad_a, dato:dato  ,opcion:opcion};
+    console.log(request_body);
+    debugger;
         $.ajax({
           url: "bd/crud.php",
           type: "POST",
           datatype:"json",    
-          data:  {id:id,nombre:nombre, codigo:codigo, valor:valor, cantidad_i:cantidad_i, cantidad_a:cantidad_a, dato:dato  ,opcion:opcion},    
-          success: function(data) {
+          data:  request_body,
+          success: function(response) {
+            console.log(response);
             tablaHerramientas.ajax.reload(null, false);
            }
         });			        
@@ -45,9 +49,9 @@ $('#formHerramientas').submit(function(e){
         
  
 
-//para limpiar los campos antes de dar de Alta una Persona
+//para limpiar los campos antes de agregar un producto
 $("#btnNuevo").click(function(){
-    opcion = 1; //alta           
+    opcion = 1; //agregar
     id=null;
     $("#formHerramientas").trigger("reset");
     $(".modal-header").css( "background-color", "#17a2b8");
@@ -76,7 +80,8 @@ $(document).on("click", ".btnEditar", function(){
     $(".modal-header").css("background-color", "#007bff");
     $(".modal-header").css("color", "white" );
     $(".modal-title").text("Editar Herramienta");		
-    $('#modalCRUD').modal('show');		   
+    $('#modalCRUD').modal('show');
+    debugger;
 });
 
 //Borrar
@@ -98,4 +103,4 @@ $(document).on("click", ".btnBorrar", function(){
     }
  });
      
-});    
+});

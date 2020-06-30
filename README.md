@@ -1,2 +1,2 @@
 # Tabla
-Entrega n°1 Proyecto DUOC
+Entrega n°2.1 Proyecto Integración de Plataformas DUOC

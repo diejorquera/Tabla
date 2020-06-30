@@ -17,7 +17,8 @@ $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcion){
     case 1:
-        $consulta = "INSERT INTO hereramientas (nombre,codigo,valor,cantidad_i,cantidad_a,dato) VALUES('$nombre', '$codigo', '$valor', '$cantidad_i', '$cantidad_a', '$dato') ";			
+        $consulta = "INSERT INTO herramientas (nombre,codigo,valor,cantidad_i,cantidad_a,dato) VALUES('$nombre', '$codigo', '$valor', '$cantidad_i', '$cantidad_a', '$dato') ";
+        error_log(print_r($consulta, TRUE));
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
         
